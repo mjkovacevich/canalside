@@ -1,0 +1,9 @@
+app:
+    resource: "@AppBundle/Controller/"
+    type:     annotation
+CanalsideSchoolTermBundle:
+    resource: "@CanalsideSchoolTermBundle/Resources/config/routing.yml"
+    prefix:   /school-term
+CanalsideServicesBundle:
+    resource: "@CanalsideServicesBundle/Resources/config/routing.yml"
+    prefix:   /services

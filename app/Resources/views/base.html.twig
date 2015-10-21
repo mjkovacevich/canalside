@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="description" content="The Canalside Technology Trust is a technology solutions specialist focusing on the provision of state-of-the-art, innovative web solutions to the charity sector." />
+      <meta name="keywords" content="charity technology solutions, web solutions, cloud services, cura childcare suite" />
+
+      <title>{% block title %}Welcome to Canalside{% endblock %}</title>
+
+      <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+
+{#
+{% stylesheets '/web/css/*' filter='cssrewrite' %}
+    <link rel="stylesheet" href="{{ asset_url }}" />
+{% endstylesheets %}
+#}
+
+    <link rel="stylesheet" type="text/css" media="screen" href="{{ asset('web/css/bootstrap.css') }}"/>
+    <link rel="stylesheet" type="text/css" media="screen" href="{{ asset('web/css/bootstrap-theme.css') }}"/>
+    <link rel="stylesheet" type="text/css" media="screen" href="{{ asset('web/css/font-awesome.min.css') }}"/>
+    <link rel="stylesheet" type="text/css" media="screen" href="{{ asset('web/css/canalside.css') }}"/>
+
+{#
+    {% stylesheets '@css_assets' filter='cssrewrite' %}
+      <link rel="stylesheet" href="{{ asset_url }}" />
+    {% endstylesheets %}
+#}
+
+    {% block stylesheets %}{% endblock %}
+
+    </head>
+
+    <body>
+
+        {% block header %}
+        <header>
+            <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="/" title="Canalside home page"><img src="/canalside_logo_220x100.png" width="100px"/></a>
+                </div>
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
+                        <li><a href="#">Link</a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">About</a></li>
+                                <li><a href="#">Products</a></li>
+                                <li><a href="#">Services</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li><a href="#"></a></li>
+                                <li role="separator" class="divider"></li>
+                                <li><a href="#">One more separated link</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <form class="navbar-form navbar-left" role="search">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Search">
+                        </div>
+                        <button type="submit" class="btn btn-default">Submit</button>
+                    </form>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="#">Link</a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">Action</a></li>
+                                <li><a href="#">Another action</a></li>
+                                <li><a href="#">Something else here</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li><a href="#">Separated link</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div><!-- /.navbar-collapse -->
+            </div><!-- /.container-fluid -->
+            </nav>
+        </header>
+        {% endblock %}
+
+        {% block body %}{% endblock %}
+
+        {% block footer %}
+        <footer>
+          <div class="container">
+            <div class="row">
+              <div id="footer-copyright" class="col-md-6">
+                <h3>Canalside Technology Trust &copy; {{ 'now'|date('Y') }}</h3>
+              </div>
+              <div id="footer-resources" class="col-md-6">
+                <h3>
+                  <a href="https://twitter.com/canalside"><i class="fa fa-twitter"></i></a>
+                  <a href="https://www.facebook.com/canalside"><i class="fa fa-facebook"></i></a>
+                  <a href="http://www.canalside.org.uk/blog"><i class="fa fa-rss"></i></a>
+                </h3>
+              </div>
+            </div>
+          </div>
+        </footer>
+      {% endblock %}
+
+        <script type="text/javascript" src="{{ asset('web/js/jquery-1.11.3.min.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('web/js/bootstrap.js') }}"></script>
+
+{#
+        {% javascripts '@js_assets' %}
+          <script src="{{ asset_url }}"></script>
+        {% endjavascripts %}
+#}
+
+        {% block javascripts %}{% endblock %}
+
+    </body>
+</html>

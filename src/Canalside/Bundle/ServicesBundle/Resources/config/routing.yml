@@ -1,0 +1,3 @@
+CanalsideServicesBundle_homepage:
+    pattern:  /
+    defaults: { _controller: CanalsideServicesBundle:Default:index }

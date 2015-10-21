@@ -1,0 +1,5 @@
+services:
+    canalside.form.type.school_term:
+        class: Canalside\Bundle\SchoolTermBundle\Form\Type\SchoolTermType
+        tags:
+            - { name: form.type, alias: canalside_school_term }
