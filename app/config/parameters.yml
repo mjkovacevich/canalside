@@ -1,0 +1,12 @@
+# This file is auto-generated during the composer install
+parameters:
+    database_host: mysql.hostinger.co.uk
+    database_port: null
+    database_name: u504348579_d7d
+    database_user: u504348579_d7u
+    database_password: J4m3s_165
+    mailer_transport: smtp
+    mailer_host: 127.0.0.1
+    mailer_user: null
+    mailer_password: null
+    secret: 6ebadab1426d02b41c367165db0d0e9bd2fc39a7
