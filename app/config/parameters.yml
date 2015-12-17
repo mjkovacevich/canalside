@@ -10,3 +10,4 @@ parameters:
     mailer_user: null
     mailer_password: null
     secret: 6ebadab1426d02b41c367165db0d0e9bd2fc39a7
+
