@@ -1,0 +1,164 @@
+{#
+   This is the base template used as the application layout which contains the
+   common elements and decorates all the other templates.
+   See http://symfony.com/doc/current/book/templating.html#template-inheritance-and-layouts
+#}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="description" content="The Canalside Technology Trust is a technology solutions specialist focusing on the provision of state-of-the-art, innovative web solutions to the charity sector." />
+      <meta name="keywords" content="charity technology solutions, web solutions, cloud services, cura childcare suite" />
+
+      <title>{% block title %}Welcome to Canalside{% endblock %}</title>
+
+      <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+
+{#
+{% stylesheets '/web/css/*' filter='cssrewrite' %}
+    <link rel="stylesheet" href="{{ asset_url }}" />
+{% endstylesheets %}
+#}
+
+    <link rel="stylesheet" type="text/css" media="screen" href="{{ asset('web/css/bootstrap.css') }}"/>
+    <link rel="stylesheet" type="text/css" media="screen" href="{{ asset('web/css/bootstrap-theme.css') }}"/>
+    <link rel="stylesheet" type="text/css" media="screen" href="{{ asset('web/css/font-awesome.min.css') }}"/>
+    <link rel="stylesheet" type="text/css" media="screen" href="{{ asset('web/css/canalside.css') }}"/>
+
+{#
+    {% stylesheets '@css_assets' filter='cssrewrite' %}
+      <link rel="stylesheet" href="{{ asset_url }}" />
+    {% endstylesheets %}
+#}
+
+    {% block stylesheets %}{% endblock %}
+
+    </head>
+
+    <body id="{% block body_id %}{% endblock %}">
+
+        {% block header %}
+        <header>
+            <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="/" title="Canalside home page"><img src="/canalside_logo_with_name.png"/></a>
+                </div>
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="#">About<span class="sr-only">(current)</span></a></li>
+                        <li><a href="#">Products</a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">Cura Childcare Suite</a></li>
+                                <li><a href="#">Drupal</a></li>
+                                <li><a href="#">Symfony</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li><a href="#">School products</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">Contact us</a></li>
+                    </ul>
+                    <form class="navbar-form navbar-left" role="search">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Search">
+                        </div>
+                        <button type="submit" class="btn btn-default">Submit</button>
+                    </form>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Account <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">Personal details</a></li>
+                                <li><a href="#">Billing</a></li>
+                                <li><a href="#">Preferences</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li><a href="#">Logout</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div><!-- /.navbar-collapse -->
+            </div><!-- /.container-fluid -->
+            </nav>
+        </header>
+        {% endblock %}
+        
+        <div class="slider">
+            {% block slider %}{% endblock %}
+        </div>
+        
+        <div class="container body-container">
+            {% block body %}
+                <div class="row">
+                    <div id="main" class="col-sm-9">
+                        {% block main %}{% endblock %}
+                    </div>
+
+                    <div id="sidebar" class="col-sm-3">
+                        {% block sidebar %}
+                            <div class="section about">
+                                <div class="well well-lg">
+                                    <p>
+                                        {{ 'help.app_description'|trans|raw }}
+                                    </p>
+                                    <p>
+                                        {{ 'help.more_information'|trans|raw }}
+                                    </p>
+                                </div>
+                            </div>
+                        {% endblock %}
+                    </div>
+                </div>
+            {% endblock %}
+        </div>
+
+        {% block footer %}
+            <footer>
+                <div class="container">
+                    <div class="row">
+                        <div id="footer-copyright" class="col-md-6">
+                            <p>Canalside Technology Trust &copy; {{ 'now'|date('Y') }}</p>
+                        </div>
+                        <div id="footer-resources" class="col-md-6">
+                            <p>
+                                <a href="https://twitter.com/canalsidetechnology"><i class="fa fa-twitter"></i></a>
+                                <a href="https://www.facebook.com/canalsidetechnology"><i class="fa fa-facebook"></i></a>
+                                <a href="http://www.canalside.org.uk/blog"><i class="fa fa-rss"></i></a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        {% endblock %}
+
+        <script type="text/javascript" src="{{ asset('web/js/jquery-1.11.3.min.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('web/js/bootstrap.js') }}"></script>
+
+{#
+        {% javascripts '@js_assets' %}
+          <script src="{{ asset_url }}"></script>
+        {% endjavascripts %}
+#}
+
+        {% block javascripts %}
+            <script>
+                $(document).ready(function() {
+                    hljs.initHighlightingOnLoad();
+                });
+            </script>
+        {% endblock %}
+
+    </body>
+</html>

@@ -1,0 +1,6 @@
+CanalsideSchoolTermBundle_homepage:
+    pattern:  /
+    defaults: { _controller: CanalsideSchoolTermBundle:Default:index }
+CanalsideSchoolTermBundle_create:
+    pattern:  /add
+    defaults: { _controller: CanalsideSchoolTermBundle:Default:create }
