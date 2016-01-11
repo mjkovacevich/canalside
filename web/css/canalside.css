@@ -1,11 +1,19 @@
 /*
  * Navigation bar
  */
-
 .navbar {margin: 0;}
-
 .navbar-brand {padding: 0;}
 
 /*
  * Carousel
  */
+.carousel-caption-title {
+  position: absolute;
+  top: 40px;
+  left:30px;
+  bottom: initial;
+  width: 280px;
+  background-color: rgba(0, 0, 0, 0.2);
+  padding: 10px 20px;
+}
+
